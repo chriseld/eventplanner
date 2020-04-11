@@ -9,6 +9,7 @@ $(document).ready(function() {
   const eventLink = $("#eventlink-input");
   const eventDescription = $("input#description-input");
   const eventLocation = $("input#location-input");
+  const eventFavorite = $("input#favorite-input");
   //not sure we need it with userId through the association
   //const eventUploader = $("input#uploader-input");
 
@@ -24,7 +25,8 @@ $(document).ready(function() {
       //eventDate: eventDate.val().trim(),
       eventLink: eventLink.val(),
       description: eventDescription.val(),
-      location: eventLocation.val().trim()
+      location: eventLocation.val().trim(),
+      favorite: false
       //uploader: eventUploader.val().trim()
     };
     //validate newEvent attributes - title,location and uploader - to not null as per the model specifications
@@ -54,6 +56,14 @@ $(document).ready(function() {
       })
       .catch(handleLoginErr);
   }
+
+  $("input[name=favorite]").change(function() {
+    if ($(this).is(":checked")) {
+      eventFavorite.val(1);
+    } else {
+      eventFavorite.val(0);
+    }
+  });
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);

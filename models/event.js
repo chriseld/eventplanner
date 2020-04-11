@@ -42,6 +42,10 @@ module.exports = function(sequelize, DataTypes) {
       notEmpty: true,
       allowNull: false
       //a location is required and cannot be null
+    },
+    favorite: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
     // uploader: {
     //   type: DataTypes.STRING,

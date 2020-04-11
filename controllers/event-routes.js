@@ -15,7 +15,8 @@ module.exports = function(app) {
       eventDate: req.body.eventDate,
       eventLink: req.body.eventlink,
       description: req.body.description,
-      location: req.body.location
+      location: req.body.location,
+      favorite: false
     }).then(function() {
       res.end();
     });
