@@ -104,6 +104,15 @@ module.exports = function(app) {
       res.render("music", { events: dbEvents });
     });
   });
+  app.get("/favorites", function(req, res) {
+    db.Events.findAll({
+      where: {
+        favorite: true
+      }
+    }).then(dbEvents => {
+      res.render("favorites", { events: dbEvents });
+    });
+  });
 
   // to delete an event??
   // app.delete("/events/:id", function(req, res) {

@@ -1,0 +1,28 @@
+{{#each events}}
+{{#if favorite}}
+<div class="containerB">
+  <div class="item-c">
+
+    <div id="titleLink">
+      <h2>{{dataValues.title}}</h2><input id="favorite" class="star" checked="{{dataValues.favorite}}" type="checkbox" title="favorite">
+    </div>
+    <hr>
+    <div id="descriptionT">Description:</div>
+    <div id="descriptionP">{{dataValues.description}}
+    </div>
+    <hr>
+    <div id="date">Date:  {{dataValues.createdAt}}</div>
+    <div id="location">Location:  {{dataValues.location}}</div>
+    <div id="link"><a href="{{dataValues.eventLink}}">Click for More information </a></div>
+    {{!-- to display the name from users table --}}
+    {{!-- <div id="userUpload">Posted by: {{dataValues.UserId}}</div> --}}
+    {{!-- <a href="#" class="button">Save!</a> --}}
+    <br>
+    <br>
+
+  </div>
+</div>
+{{/if}}
+{{/each}}
+
+<script type="text/javascript" src="js/eventsclient.js"></script>
