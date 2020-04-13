@@ -107,14 +107,10 @@ module.exports = function(app) {
       .then(dbEvents => res.json(dbEvents))
       .catch(err => res.status(500).json(err));
   });
-  // //update a Events
-  // app.put("/api/events/:id", function(req, res) {
-  //   db.Events.update({
-  //     where: {
-  //       id: req.body.id
-  //     }
-  //   })
-  //     .then(dbEvents => res.json(dbEvents))
-  //     .catch(err => res.status(500).json(err));
-  // });
+  //update a Events
+  app.put("/api/events/:id", function(req, res) {
+    db.Events.update({ favorite: true }, { where: req.body.id })
+      .then(dbEvents => res.json(dbEvents))
+      .catch(err => res.status(500).json(err));
+  });
 };

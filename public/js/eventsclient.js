@@ -86,3 +86,14 @@ $(document).ready(function() {
   //   );
   // });
 });
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var _selector = document.querySelector("input[type=checkbox]");
+  _selector.addEventListener("change", function(event) {
+    if (_selector.checked) {
+      $.put("/api/events:id", id).catch(err);
+    } else {
+      document.getElementById("myDiv").style.backgroundColor = "blue";
+    }
+  });
+});
