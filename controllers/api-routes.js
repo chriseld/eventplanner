@@ -108,8 +108,13 @@ module.exports = function(app) {
       .catch(err => res.status(500).json(err));
   });
   //update a Events
-  app.put("/api/events/:id", function(req, res) {
+  app.put("/api/events/truify/:id", function(req, res) {
     db.Events.update({ favorite: true }, { where: req.body.id })
+      .then(dbEvents => res.json(dbEvents))
+      .catch(err => res.status(500).json(err));
+  });
+  app.put("/api/events/falsify/:id", function(req, res) {
+    db.Events.update({ favorite: false }, { where: req.body.id })
       .then(dbEvents => res.json(dbEvents))
       .catch(err => res.status(500).json(err));
   });

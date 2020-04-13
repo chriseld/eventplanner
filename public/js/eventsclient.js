@@ -87,13 +87,13 @@ $(document).ready(function() {
   // });
 });
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
   var _selector = document.querySelector("input[type=checkbox]");
-  _selector.addEventListener("change", function(event) {
+  _selector.addEventListener("change", function() {
     if (_selector.checked) {
-      $.put("/api/events:id", id).catch(err);
+      $.put("/api/events/truify:id", id).catch(err);
     } else {
-      document.getElementById("myDiv").style.backgroundColor = "blue";
+      $.put("/api/events/falsify:id", id).catch(err);
     }
   });
 });
