@@ -30,7 +30,7 @@ add a link to add events form--}}
   <div class="item-c">
 
     <div id="titleLink">
-      <h2>{{dataValues.title}}</h2><input id="favorite" class="star" checked="{{dataValues.favorite}}" type="checkbox" title="favorite">
+      <h2>{{dataValues.title}}</h2><input id="favorite" class="star" {{#if dataValues.favorite}}checked{{/if}} type="checkbox" title="favorite">
     </div>
     <hr>
     <div id="descriptionT">Description:</div>
